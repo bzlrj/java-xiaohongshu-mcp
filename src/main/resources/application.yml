@@ -1,0 +1,19 @@
+spring:
+  ai:
+    mcp:
+      server:
+        enabled: true
+        protocol: STREAMABLE      # 关键：启用 Streamable-HTTP（替代 SSE）
+        name: xiaohongshu-mcp
+        version: 1.0.0
+        type: SYNC
+        streamable-http:
+          mcp-endpoint: /mcp      # 默认也是 /mcp，可按需改
+          keep-alive-interval: 30s  # 可选：仅对 SSE 下行心跳有效
+        capabilities:
+          tool: true
+          resource: true
+          prompt: true
+          completion: true
+server:
+  port: 8081
