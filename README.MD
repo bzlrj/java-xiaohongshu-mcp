@@ -120,5 +120,11 @@ docker run --rm -e PLAYWRIGHT_BROWSERS_PATH=/ms-playwright -v pw-browsers:/ms-pl
 © 2025 [bzlrj](https://github.com/bzlrj). 保留所有权利。
 
 ---
+## 📬 联系方式
 
-❤️ **如果你觉得这个项目有帮助，欢迎点个 Star 支持！**
+如需交流或问题反馈，请通过以下方式：
+
+- GitHub Issues: [提交问题](https://github.com/bzlrj/java-xiaohongshu-mcp/issues)
+- 邮箱: hack-bzlrj@163.com
+- 微信： <img src="docs/qrcode.png" width="200" alt="微信二维码">
+> ⚠️ 请勿用于广告、推广或商业用途
