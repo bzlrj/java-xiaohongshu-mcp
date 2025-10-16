@@ -110,15 +110,6 @@ docker run --rm -e PLAYWRIGHT_BROWSERS_PATH=/ms-playwright -v pw-browsers:/ms-pl
 - 登录与发帖均依赖有效的 Cookie / 登录态。
 - 评论与发帖功能需要合法的 `xsec_token` 参数。
 - 项目仅供学习用途，**严禁用于商业爬取、滥用或违反平台政策的行为**。
-
----
-
-
-## 🧾 License
-
-本项目基于 [MIT License](./LICENSE) 进行开源。  
-© 2025 [bzlrj](https://github.com/bzlrj). 保留所有权利。
-
 ---
 ## 📬 联系方式
 
@@ -128,3 +119,10 @@ docker run --rm -e PLAYWRIGHT_BROWSERS_PATH=/ms-playwright -v pw-browsers:/ms-pl
 - 邮箱: hack-bzlrj@163.com
 - 微信： <img src="docs/qrcode.png" width="200" alt="微信二维码">
 > ⚠️ 请勿用于广告、推广或商业用途
+---
+
+## 🧾 License
+
+本项目基于 [MIT License](./LICENSE) 进行开源。  
+© 2025 [bzlrj](https://github.com/bzlrj). 保留所有权利。
+
