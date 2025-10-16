@@ -117,10 +117,10 @@ docker run --rm -e PLAYWRIGHT_BROWSERS_PATH=/ms-playwright -v pw-browsers:/ms-pl
 
 - GitHub Issues: [提交问题](https://github.com/bzlrj/java-xiaohongshu-mcp/issues)
 - 邮箱: hack-bzlrj@163.com
-- 微信： <img src="docs/qrcode.png" width="200" alt="微信二维码">
+- 微信(交流、交朋友、共同进步)： 
+<img src="docs/qrcode.png" width="200" alt="微信二维码">
 > ⚠️ 请勿用于广告、推广或商业用途
 ---
-
 ## 🧾 License
 
 本项目基于 [MIT License](./LICENSE) 进行开源。  
