@@ -15,6 +15,7 @@ import java.util.*;
 public class XhsService {
     private final BrowserManager bm;
     private final PublishService publishService;
+    private final PublishVideoService publishVideoService;
     private final FeedsService feedsService;
     private final FeedDetailService feedDetailService;
     private final SearchService searchService;
@@ -31,6 +32,7 @@ public class XhsService {
         this.postCommentService = new PostCommentService(bm);
         this.userProfileService = new UserProfileService(bm);
         this.loginService = new LoginService(bm);
+        this.publishVideoService = new PublishVideoService(bm);
     }
 
     @Tool(description = "检查小红书登录状态")
@@ -59,6 +61,16 @@ public class XhsService {
     public Result<Void> publish(@ToolParam(description = "内容标题（小红书限制：最多20个中文字或英文单词）") String title, @ToolParam(description = "正文内容，不包含以#开头的标签内容，所有话题标签都用tags参数来生成和提供即可") String content, List<String> images) {
         try {
             return publishService.publish(title, content, images);
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return Result.fail(BizErrorCode.PUBLISH_FAILED, "发布失败");
+        }
+    }
+
+    @Tool(description = "发布小红书视频内容")
+    public Result<Void> publishVideo(@ToolParam(description = "内容标题（小红书限制：最多20个中文字或英文单词）") String title, @ToolParam(description = "正文内容，不包含以#开头的标签内容，所有话题标签都用tags参数来生成和提供即可") String content, String videoPath) {
+        try {
+            return publishVideoService.publish(title, content, videoPath);
         } catch (Exception e) {
             log.error(e.getMessage(), e);
             return Result.fail(BizErrorCode.PUBLISH_FAILED, "发布失败");
