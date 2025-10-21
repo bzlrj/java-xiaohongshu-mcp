@@ -1,0 +1,35 @@
+services:
+  app-1:
+    image: lv/java-xiaohongshu-mcp:latest
+    container_name: app-1
+    ports:
+      - "8081:8081"     # 宿主机 8081 -> 容器 8080
+    restart: unless-stopped
+#    healthcheck:        # 可选：如果启用了 Actuator
+#      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/actuator/health | grep -q '\"status\":\"UP\"'"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 10
+
+  app-2:
+    image: lv/java-xiaohongshu-mcp:latest
+    container_name: app-2
+    ports:
+      - "8082:8081"     # 宿主机 8082 -> 容器 8080
+    restart: unless-stopped
+#    healthcheck:
+#      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/actuator/health | grep -q '\"status\":\"UP\"'"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 10
+  app-3:
+    image: lv/java-xiaohongshu-mcp:latest
+    container_name: app-3
+    ports:
+      - "8083:8081"     # 宿主机 8083 -> 容器 8080
+    restart: unless-stopped
+#    healthcheck:
+#      test: ["CMD-SHELL", "wget -qO- http://localhost:8080/actuator/health | grep -q '\"status\":\"UP\"'"]
+#      interval: 10s
+#      timeout: 5s
+#      retries: 10

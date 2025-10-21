@@ -77,10 +77,10 @@ CLI 模式适合快速验证或单机自动化任务。
 
 ```bash
 # 构建镜像
-docker buildx build -t java-xhs-mcp:1.0.0 .
+docker buildx build -t java-xhs-mcp:latest .
 
 # 启动容器
-docker run --rm -e PLAYWRIGHT_BROWSERS_PATH=/ms-playwright -v pw-browsers:/ms-playwright java-xhs-mcp:1.0.0 /bin/bash
+docker run --rm -e PLAYWRIGHT_BROWSERS_PATH=/ms-playwright -v pw-browsers:/ms-playwright java-xhs-mcp:latest /bin/bash
 
 ```
 
