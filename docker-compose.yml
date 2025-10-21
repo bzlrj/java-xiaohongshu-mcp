@@ -22,6 +22,7 @@ services:
 
   app-2:
     image: *app_image
+    depends_on: [app-base]
     container_name: app-2
     ports:
       - "8082:8081"     # 宿主机 8082 -> 容器 8080
@@ -33,6 +34,7 @@ services:
 #      retries: 10
   app-3:
     image: *app_image
+    depends_on: [app-base]
     container_name: app-3
     ports:
       - "8083:8081"     # 宿主机 8083 -> 容器 8080
