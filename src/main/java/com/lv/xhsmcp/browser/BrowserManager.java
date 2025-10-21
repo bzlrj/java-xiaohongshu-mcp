@@ -2,8 +2,11 @@ package com.lv.xhsmcp.browser;
 
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
+import org.springframework.stereotype.Service;
+
 import java.util.*;
 
+@Service
 public class BrowserManager implements AutoCloseable {
   private final CookieStore store = new CookieStore();
   private final boolean headless;

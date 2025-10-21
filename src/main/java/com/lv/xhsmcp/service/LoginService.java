@@ -8,6 +8,7 @@ import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.LoadState;
 import com.microsoft.playwright.options.WaitUntilState;
 import io.micrometer.common.util.StringUtils;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -31,8 +32,8 @@ public class LoginService {
 
     private final ScheduledExecutorService exec = Executors.newSingleThreadScheduledExecutor();
 
-    private final BrowserManager bm;
-    public LoginService(BrowserManager bm){ this.bm = bm; }
+    @Resource
+    private BrowserManager bm;
 
     public Result<LoginCheck> checkLogin() {
         try (Page page = bm.context().newPage()) {

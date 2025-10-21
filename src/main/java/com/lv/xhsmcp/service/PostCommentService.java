@@ -8,11 +8,14 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.WaitUntilState;
 import io.micrometer.common.util.StringUtils;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
+@Service
 @Slf4j
 public class PostCommentService {
 
@@ -31,11 +34,12 @@ public class PostCommentService {
     private static final int SUBMIT_TIMEOUT_MS     = 5_000;
     private static final int SLEEP_AFTER_SUBMIT_MS = 1_000;
 
-    private final BrowserManager browserManager;
+    @Resource
+    private BrowserManager browserManager;
 
-    public PostCommentService(BrowserManager bm) {
-        this.browserManager = bm;
-    }
+//    public PostCommentService(BrowserManager bm) {
+//        this.browserManager = bm;
+//    }
 
     /**
      * 发布评论

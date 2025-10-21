@@ -6,7 +6,9 @@ import com.lv.xhsmcp.xhs.Result;
 import com.microsoft.playwright.*;
 import com.microsoft.playwright.options.*;
 import io.micrometer.common.util.StringUtils;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -20,6 +22,7 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.regex.Pattern;
 
+@Service
 @Slf4j
 public class PublishService {
     /* ===================== 常量（避免魔法数） ===================== */
@@ -46,11 +49,8 @@ public class PublishService {
     private static final Path LOCAL_IMAGE_DIR         = Paths.get("images");
     private static final Pattern TAG_PATTERN          = Pattern.compile("#([\\p{L}\\p{N}_]+)");
 
-    private final BrowserManager browserManager;
-
-    public PublishService(BrowserManager browserManager) {
-        this.browserManager = browserManager;
-    }
+    @Resource
+    private BrowserManager browserManager;
 
     /**
      * 发布图文

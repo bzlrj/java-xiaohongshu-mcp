@@ -4,36 +4,36 @@ import com.lv.xhsmcp.browser.BrowserManager;
 import com.lv.xhsmcp.model.*;
 import com.lv.xhsmcp.xhs.*;
 import io.modelcontextprotocol.spec.McpSchema;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springaicommunity.mcp.annotation.McpTool;
 import org.springframework.ai.tool.annotation.Tool;
 import org.springframework.ai.tool.annotation.ToolParam;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 @Slf4j
 public class XhsService {
-    private final BrowserManager bm;
-    private final PublishService publishService;
-    private final PublishVideoService publishVideoService;
-    private final FeedsService feedsService;
-    private final FeedDetailService feedDetailService;
-    private final SearchService searchService;
-    private final PostCommentService postCommentService;
-    private final UserProfileService userProfileService;
-    private final LoginService loginService;
-
-    public XhsService(BrowserManager bm) {
-        this.bm = bm;
-        this.publishService = new PublishService(bm);
-        this.feedsService = new FeedsService(bm);
-        this.feedDetailService = new FeedDetailService(bm);
-        this.searchService = new SearchService(bm);
-        this.postCommentService = new PostCommentService(bm);
-        this.userProfileService = new UserProfileService(bm);
-        this.loginService = new LoginService(bm);
-        this.publishVideoService = new PublishVideoService(bm);
-    }
+    @Resource
+    private BrowserManager bm;
+    @Resource
+    private PublishService publishService;
+    @Resource
+    private PublishVideoService publishVideoService;
+    @Resource
+    private FeedsService feedsService;
+    @Resource
+    private FeedDetailService feedDetailService;
+    @Resource
+    private SearchService searchService;
+    @Resource
+    private PostCommentService postCommentService;
+    @Resource
+    private UserProfileService userProfileService;
+    @Resource
+    private LoginService loginService;
 
     @Tool(description = "检查小红书登录状态")
     public Result<LoginCheck> checkLogin() {

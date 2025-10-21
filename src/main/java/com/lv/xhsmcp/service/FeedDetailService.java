@@ -14,12 +14,14 @@ import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.WaitUntilState;
 import io.micrometer.common.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 
 @Slf4j
+@Service
 public class FeedDetailService {
     /* ===================== 常量 ===================== */
     private static final int PAGE_DEFAULT_TIMEOUT_MS = 60_000;

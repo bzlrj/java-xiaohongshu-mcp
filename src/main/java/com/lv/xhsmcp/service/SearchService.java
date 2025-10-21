@@ -13,7 +13,9 @@ import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.Response;
 import com.microsoft.playwright.options.WaitUntilState;
 import io.micrometer.common.util.StringUtils;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -22,6 +24,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.Consumer;
 
+@Service
 @Slf4j
 public class SearchService {
     /* ===================== 常量（避免魔法数） ===================== */
@@ -42,11 +45,8 @@ public class SearchService {
     private static final int STABLE_WAIT_AFTER_NAV_MS = 3000;
     private static final long NO_GROWTH_QUIT_NS = 3_000_000_000L; // 3s
 
-    private final BrowserManager browserManager;
-
-    public SearchService(BrowserManager browserManager) {
-        this.browserManager = browserManager;
-    }
+    @Resource
+    private BrowserManager browserManager;
 
     /**
      * 搜索笔记

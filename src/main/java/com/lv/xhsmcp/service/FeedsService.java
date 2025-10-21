@@ -10,10 +10,13 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.WaitUntilState;
 import io.micrometer.common.util.StringUtils;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 @Slf4j
 public class FeedsService {
 
@@ -37,11 +40,12 @@ public class FeedsService {
             }
             """;
 
-    private final BrowserManager browserManager;
+    @Resource
+    private BrowserManager browserManager;
 
-    public FeedsService(BrowserManager browserManager) {
-        this.browserManager = browserManager;
-    }
+//    public FeedsService(BrowserManager browserManager) {
+//        this.browserManager = browserManager;
+//    }
 
     /**
      * 获取首页信息流（最多 limit 条；limit==0 采用默认值）

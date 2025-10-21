@@ -16,12 +16,6 @@ public class McpApplication {
         SpringApplication.run(McpApplication.class, args);
     }
     @Bean
-    public BrowserManager browserManager() { return new BrowserManager(); }
-
-    @Bean
-    public XhsService xhsService(BrowserManager bm) { return new XhsService(bm); }
-
-    @Bean
     public ToolCallbackProvider tools(XhsService xhsService) {
         return MethodToolCallbackProvider.builder().toolObjects(xhsService).build();
     }

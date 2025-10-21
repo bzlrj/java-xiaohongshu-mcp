@@ -11,12 +11,15 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.WaitUntilState;
 import io.micrometer.common.util.StringUtils;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 
+@Service
 @Slf4j
 public class UserProfileService {
     /* ===================== 常量 ===================== */
@@ -40,8 +43,9 @@ public class UserProfileService {
         () => window.__INITIAL_STATE__ !== undefined || window.__XHS_DATA__ !== undefined
         """;
 
-    private final BrowserManager bm;
-    public UserProfileService(BrowserManager bm){ this.bm = bm; }
+    @Resource
+    private BrowserManager bm;
+
     public Result<UserProfileResponse> userProfile(String userId, String xsecToken) {
         // 参数校验（契约问题）
         if (StringUtils.isBlank(userId)) {

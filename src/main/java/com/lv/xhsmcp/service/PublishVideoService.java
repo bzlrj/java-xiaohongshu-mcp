@@ -8,7 +8,9 @@ import com.microsoft.playwright.Page;
 import com.microsoft.playwright.PlaywrightException;
 import com.microsoft.playwright.options.*;
 import io.micrometer.common.util.StringUtils;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -16,6 +18,7 @@ import java.time.Duration;
 import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
+@Service
 @Slf4j
 public class PublishVideoService {
     /* ===================== 常量（避免魔法数） ===================== */
@@ -27,11 +30,8 @@ public class PublishVideoService {
     private static final int STABLE_SLEEP_SHORT_MS    = 1_000;
     private static final int STABLE_SLEEP_LONG_MS     = 3_000;
 
-    private final BrowserManager browserManager;
-
-    public PublishVideoService(BrowserManager browserManager) {
-        this.browserManager = browserManager;
-    }
+    @Resource
+    private BrowserManager browserManager;
 
     /**
      * 发布图文
