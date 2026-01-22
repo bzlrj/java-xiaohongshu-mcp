@@ -1,5 +1,5 @@
 
-# 🧩 Java Xiaohongshu MCP
+# 🧩 Java Xiaohongshu MCP (2026-01-22最后更新)
 
 **Java 实现的小红书 Model Context Protocol (MCP) 工具服务**
 
